@@ -9,7 +9,19 @@ $maxInitVal = 800;
 // set image crop size
 $thumbwidth= 120;
 $thumbheight= 80;
+
 //----------------------------END SETTINGS
+$cropx = $_POST['cropx'];
+$cropy = $_POST['cropy'];
+$fitx = $_POST['fitx'];
+$fity = $_POST['fity'];
+$scalex = $_POST['scalex'];
+$scaley = $_POST['scaley'];
+$saveimage = $_POST['saveimage'];
+$imagefile1 = $_POST['imagefile1'];
+$fitx = $_POST['fitx'];
+$fity = $_POST['fity'];
+$buildimage = $_POST['buildimage'];
 ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -29,11 +41,11 @@ $thumbheight= 80;
 Scale image to desired size by dragging the bottom right corner.  Drag blue box over the desired crop area. Click 'Crop Image'.
 </td>
 <td style="width:32%;margin:1px;background-color:#fff;font-weight:bold;"> 
-<a href="<?=$PHP_SELF?>">Upload New</a>
+<a href="<?=$_SERVER['PHP_SELF']?>">Upload New</a>
 </td>
 <td style="width:32%;margin:1px;background-color:#fff;font-weight:bold;">
 
-<form action="<?=$PHP_SELF ?>" method="post" enctype="multipart/form-data">
+<form action="<?=$_SERVER['PHP_SELF'] ?>" method="post" enctype="multipart/form-data">
 <input type="hidden" name="cropx" id="cropx" value=""  />
 <input type="hidden" name="cropy" id="cropy" value=""  />
 <input type="hidden" name="fitx" id="fitx" value="<?=$fitx?>" />
@@ -50,10 +62,10 @@ Scale image to desired size by dragging the bottom right corner.  Drag blue box 
 <? } else if ($saveimage) { ?>
 <div style="padding:10px;">
 <img src="finalimage.jpg" /><br />
-<a href="<?=$PHP_SELF?>">Upload New</a></div>
+<a href="<?=$_SERVER['PHP_SELF']?>">Upload New</a></div>
  <? } else { ?>
 <div style="background-color:#aaa;height:350px;width:788px;padding-top:250px;border:3px solid black;" align="center">
-<form action="<?=$PHP_SELF ?>" method="post" enctype="multipart/form-data" name="imageform1" id="imageform1">
+<form action="<?=$_SERVER['PHP_SELF']?>" method="post" enctype="multipart/form-data" name="imageform1" id="imageform1">
 <input type="file" name="imagefile1" id="imagefile1"  />
 <input type="hidden" value="<?=$thumbwidth?>" name="fitx" />
 <input type="hidden" value="<?=$thumbheight?>" name="fity" />
